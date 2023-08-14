@@ -4,10 +4,18 @@ import numpy as np
 from statistics import mode
 from collections import Counter
 
+######################
+## GLOBAL VARIABLES ##
+######################
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+###############
+## FUNCTIONS ##
+###############
+ 
 def get_month_filter():
     """
     Asks user to specify the month to analyze.
@@ -250,7 +258,7 @@ def time_conversion(x):
     x = x % 3600
     minutes = int(x/60)
     
-    #Determine how many seconds are remaining and the calculate the number of seconds
+    # Determine how many seconds are remaining and the calculate the number of seconds
     x = x % 60
     seconds = int(x)
     
@@ -314,6 +322,11 @@ def user_stats(df):
     
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
+
+##########
+## MAIN ##
+##########
 
 def main():
     stop_flag = False
