@@ -16,6 +16,8 @@ The key data fields included in the CSV files were as follows:
 * Gender
 * Birth Year (NOTE:  The "washingon.csv" file did not have a Birth Year data field)
 
+The bikeshare project interacts with the user by asking the user to specify a city to explore, the month(s) of interest, and then filter criteria based on time (month, day of week, both, or no time filters). Once the program receives the appropriate information, it then displays some basic statistics and information from the bikeshare data based on the user's input. 
+
 ## Files used
 The main file that was used to create the project was:  "bikeshare.py"
 
