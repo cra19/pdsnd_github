@@ -341,7 +341,7 @@ def main():
 
         
         while True:
-            restart = input('\nWould you like to restart? Enter yes or no.\n')
+            restart = input('\nWould you like to restart? Enter yes or no.\n').lower().strip()
             if restart == 'yes' or restart == 'y':
                 print('\n')
                 break
