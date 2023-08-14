@@ -1,17 +1,29 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
+### Udacity Bikeshare Python Project
 
-### Date created
-Include the date you created this project and README file.
+## Date created
+10 July 2023
 
-### Project Title
-Replace the Project Title
+## Description
+This project used basic Python programming principles to interact with a user and allow them to see information about bikeshare data from Chicago, New York City, and Washington. The data provided was from January to June of 2017.
 
-### Description
-Describe what your project is about and what it does
+The key data fields included in the CSV files were as follows:
+* Start Time
+* End Time
+* Trip Duration
+* Start Station
+* End Station
+* User Type
+* Gender
+* Birth Year (NOTE:  The "washingon.csv" file did not have a Birth Year data field)
 
-### Files used
-Include the files used
+## Files used
+The main file that was used to create the project was:  "bikeshare.py"
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+There were supporting CSV files that are not in this repo due to the size of those files. The names of those files were:
+* "chicago.csv"
+* "new_york_city.csv"
+* "wasington.csv"
+
+## Credits
+The Udacity GitHub course that taught students introductory information about version control. 
 
