@@ -315,6 +315,73 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def get_num_rows():
+    """
+    Gets the number of rows the user wants to see from the raw data during each printout.
+    """
+    valid_nums = {1,2,3,4,5}
+    while True:
+        try:
+            num_rows = int(input('How many records would you like to see at a time? Please enter a number from 1 to 5: ').lower().strip())
+            if num_rows in valid_nums:
+                return num_rows
+            else:
+                print('Please enter an appropriate whole number from 1 to 5. \n')
+        except:
+            print('Your entry was invalid. Please enter an appropriate whole number from 1 to 5. \n')  
+
+def raw_data(df):
+    """
+    Displays the raw data of the dataframe based on the city and filters the user selected. 
+    Stops displaying data upon the user's request.
+    """
+    while True:
+        # Ask the user if they want to see the raw data of the dataframe
+        view_rawdata = input('\nWould you like to view the raw data? Please enter a yes or a no. \n').lower().strip()
+        
+        # Exit out of the function if they don't want to see anything
+        if view_rawdata == 'no' or view_rawdata == 'n':
+            return print('\nNo problem! Raw data can be messy sometimes. We\'ll continue on. \n')
+        
+        # If they want to see raw data, print it out to the user
+        elif view_rawdata == 'yes' or view_rawdata == 'y':
+        
+            # Determine how much raw data the user wants to see in one view
+            num_records = get_num_rows()
+
+            # Based on the user input, start outputting the raw data
+            start_row = 0
+            end_row = len(df.index)
+            pd.set_option('display.max_columns', None)
+            while True:
+                # Exit out of the function if at the end of the dataframe
+                if num_records == end_row or start_row == end_row:
+                    return print("You've reached the end of the file. We hope you enjoyed viewing the raw data! \n")
+
+                # If data is still available to view, print out the data to the user
+                print(df.iloc[start_row:num_records, :])
+
+                # Ask the user if they would like to continue see more records
+                while True:
+                    view_more = input('\nWould you like to see more raw data? Please enter a yes or no. \n').lower().strip()
+
+                    # Exit out of the funciton if they don't want to continue seeing raw data
+                    if view_more == 'no' or view_more == 'n':
+                        return print('\nOkay, we will stop printing out the raw data.')
+                    elif view_more == 'yes' or view_more == 'y':
+                        break
+                    else:
+                        print("\nPlease enter a yes or no.")
+
+                # Advance to the next set of rows if they want to continue seeing raw data
+                start_row += num_records
+                num_records += num_records
+
+                if num_records > end_row:
+                    num_records = end_row
+        else:
+            print("\nPlease enter a yes or no.")
+                
 def main():
     stop_flag = False
     while not stop_flag:
@@ -325,7 +392,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-
+        raw_data(df)
         
         while True:
             restart = input('\nWould you like to restart? Enter yes or no.\n').lower().strip()
