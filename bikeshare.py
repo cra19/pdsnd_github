@@ -389,11 +389,11 @@ def raw_data(df):
                     num_records = end_row
         else:
             print("\nPlease enter a yes or no.")
-                
+
 ##########
 ## MAIN ##
 ##########
-
+                
 def main():
     stop_flag = False
     while not stop_flag:
